@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Responsive Table</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <div class="container">
+
+     <div id="data">
+        <input type="text" class="form-control" placeholder="Enter first name" id="txtFname" required>
+     
+        <input type="text" class="form-control" placeholder="Enter last name" id="txtLname" required>
+     
+        <input type="text" class="form-control" placeholder="Enter city name" id="txtCity" required>
+     
+        <input type="text" class="form-control" placeholder="Enter country name" id="txCountry" required>
+        <br>
+        <br>
+        &nbsp &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <button class="fbtn" onclick="myFunction(1)" >Add row to top</button>
+       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <button class="fbtn" id="adbt">Add row to buttom</button>
+     </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+     <table class="table" >
+     	<thead>
+          <tr>
+            <th>SL.No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>City</th>
+            <th>Country</th>
+          </tr>
+          <tbody  id="mtbl">
+            <tr>
+               <td> </td>
+               <td>Shyam</td>
+               <td>Prakash</td>
+               <td>Purnia</td>
+               <td>India</td>
+            </tr>
+             <tr>
+               <td> </td>
+               <td>Ritik</td>
+               <td>Yadav</td>
+               <td>Pune</td>
+               <td>India</td>
+            </tr>
+            <tr>
+               <td> </td>
+               <td> Vikash</td>
+               <td>Sharma</td>
+               <td>Purnia</td>
+               <td>India</td>
+            </tr>
+            
+            <tr>
+               <td> </td>
+               <td> Nitish</td>
+               <td>Singh</td>
+               <td>Purnia</td>
+               <td>India</td>
+
+            </tr>
+            <tr>
+               <td> </td>
+               <td>Samrat</td>
+               <td>Singh</td>
+               <td>Purnia</td>
+               <td>India</td>
+            </tr>
+          </tbody>
+        </thead>
+     </table>
+
+
+///code for bottom row
+<script type="text/javascript">
+
+let btnAdd = document.querySelector('#adbt');
+     let table = document.querySelector('table');
+
+     let firstName = document.querySelector('#txtFname');
+     let lastName = document.querySelector('#txtLname');
+     let pcity = document.querySelector('#txtCity');
+     let pcountry = document.querySelector('#txCountry');
+
+     btnAdd.addEventListener('click', () =>{ 
+     	
+     	let sno = "";
+       let fname = firstName.value.trim();
+       let lname = lastName.value.trim();
+       let scity = pcity.value.trim();
+       let scountry = pcountry.value.trim();
+
+        if(firstName != "" && lastName != "" && scity != "" && scountry != "")
+             {
+ 
+         let template = ` <tr>
+               <td>${sno}</td>
+                <td>${fname}</td>
+                <td>${lname}</td>
+                <td>${scity}</td>
+                <td>${scountry}</td>
+                </tr>`;
+                
+                table.innerHTML +=template;
+            }
+            else
+            {
+              alert("please insert the value");
+            }
+     });
+
+</script>
+     
+
+
+
+///*code for top row*/
+
+
+
+<script type="text/javascript">
+             
+            //var min = 1;
+       // var max = 99999;
+        //var num = Math.floor(Math.random()*(max - min + 1)) + min;
+        //var num = Math.floor(Math.random()*(max - min + 1)) + min;
+        
+            function myFunction(val){
+             var table = document.getElementById("mtbl");
+    
+                
+
+
+                var list1 = document.getElementById("txtFname").value.trim();
+                var list2 = document.getElementById("txtLname").value.trim();
+                var list3 = document.getElementById("txtCity").value.trim();
+                var list4 = document.getElementById("txCountry").value.trim();
+
+                if(list1 != "" && list2 != "" && list3 != "" && list4 != "")
+             {
+                var row = table.insertRow(0);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                cell1.innerHTML = "";
+                cell2.innerHTML = list1;
+                cell3.innerHTML = list2;
+                cell4.innerHTML = list3;
+                cell5.innerHTML = list4;
+                 
+                 
+             }
+             else
+             {
+                alert("please insert the value");
+             }
+
+          }
+         </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
